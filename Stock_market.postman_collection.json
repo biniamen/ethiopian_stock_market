@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "51653116-a99b-4c82-9b56-1e8713baa334",
+		"name": "Stock_market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27937186"
+	},
+	"item": [
+		{
+			"name": "Add User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 14a3ced19c4e3ff2cdbe742486720b1ae2daab75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"mekides\",\r\n  \"password\": \"Amen@2461\",\r\n  \"role\": \"Trader\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/users/"
+			},
+			"response": []
+		},
+		{
+			"name": "Add trader",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 14a3ced19c4e3ff2cdbe742486720b1ae2daab75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": 4,  // Replace with actual user ID\r\n  \"trade_type\": \"Buy\",\r\n  \"order_type\": \"Market\",\r\n  \"stock_symbol\": \"AAPL\",\r\n  \"quantity\": 10,\r\n  \"price\": 150.00\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/trades/"
+			},
+			"response": []
+		},
+		{
+			"name": "get-User",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Generate-Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"biniyamk\",\r\n  \"password\": \"Amen@2461\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api-token-auth/"
+			},
+			"response": []
+		},
+		{
+			"name": "get-trades",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 14a3ced19c4e3ff2cdbe742486720b1ae2daab75",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/trades/"
+			},
+			"response": []
+		},
+		{
+			"name": "get-specific-user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 14a3ced19c4e3ff2cdbe742486720b1ae2daab75",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/users/4/portfolio/"
+			},
+			"response": []
+		},
+		{
+			"name": "add-kyc-document",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 14a3ced19c4e3ff2cdbe742486720b1ae2daab75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "kyc_document",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1ef6d50d-b2fa-4a00-a759-4a6764da4dd3",
+								"postman-cloud:///1ef6d50d-b51d-4800-a8cf-39eb89412e5e"
+							]
+						}
+					]
+				},
+				"url": "http://127.0.0.1:8000/api/users/4/upload_kyc/"
+			},
+			"response": []
+		},
+		{
+			"name": "view-active-trade",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "is-user-kyc-verified",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 14a3ced19c4e3ff2cdbe742486720b1ae2daab75",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/api/users/4/check_kyc_status/"
+			},
+			"response": []
+		},
+		{
+			"name": "view-kyc-document",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "verify-user-kyc",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
